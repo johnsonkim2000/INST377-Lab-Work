@@ -68,16 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  timerId = setInterval(moveDown, 1000)
+  timerId = setInterval(moveDown, 1000);
 
   function moveDown() {
-    undraw()
-    currentPosition += width 
-    draw()
-    freeze()
+    undraw();
+    currentPosition += width;
+    draw();
   }
 
-  function freeze() {
+//freeze function
+function freeze() {
     if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
       current.forEach(index => squares[currentPosition + index].classList.add('taken'))
       //start a new tetromino falling
@@ -85,5 +85,4 @@ document.addEventListener('DOMContentLoaded', () => {
       current = theTetrominoes[random][currentRotation]
       currentPosition = 4
       draw()
-
 });
